@@ -14,6 +14,9 @@ phases:
     commands:
       - echo Installing Maven...
       - yum install -y maven
+      - echo Installing Helm...
+      - curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      - helm version
       - echo Adding Helm repo for ingress-nginx...
       - helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
       - helm repo update
