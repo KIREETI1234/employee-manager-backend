@@ -33,8 +33,8 @@ phases:
       - docker push $ECR_REPO:$IMAGE_TAG
       - echo Updating Kubernetes manifests...
       - mkdir -p k8s-out
-      - sed "s|IMAGE_PLACEHOLDER|$ECR_REPO:$IMAGE_TAG|g" k8s/deployment.yaml > k8s-out/deployment.yaml
-      - cp k8s/service.yaml k8s-out/service.yaml
+      - sed "s|IMAGE_PLACEHOLDER|$ECR_REPO:$IMAGE_TAG|g" k8s/backend-deployment.yaml > k8s-out/deployment.yaml
+      - cp k8s/backend-service.yaml k8s-out/service.yaml
       - cp k8s/ingress.yaml k8s-out/ingress.yaml
 
 artifacts:
