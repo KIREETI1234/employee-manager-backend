@@ -21,3 +21,6 @@ spec:
           image: 084828586975.dkr.ecr.us-east-1.amazonaws.com/three-tier-backend:backend-project
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
