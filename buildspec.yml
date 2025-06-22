@@ -14,20 +14,20 @@ phases:
     commands:
       - echo Installing Maven...
       - yum install -y maven
-      - echo Installing Helm...
-      - curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-      - helm version
-      - echo Adding Helm repo for ingress-nginx...
-      - helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-      - helm repo update
-      - echo Installing ingress-nginx via Helm if not present...
-      - |
-        kubectl get ns ingress-nginx || kubectl create namespace ingress-nginx
-      - |
-        helm list -n ingress-nginx | grep ingress-nginx || \
-        helm install ingress-nginx ingress-nginx/ingress-nginx \
-          --namespace ingress-nginx \
-          --set controller.publishService.enabled=true
+      # - echo Installing Helm...
+      # - curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      # - helm version
+      # - echo Adding Helm repo for ingress-nginx...
+      # - helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+      # - helm repo update
+      # - echo Installing ingress-nginx via Helm if not present...
+      # - |
+      #   kubectl get ns ingress-nginx || kubectl create namespace ingress-nginx
+      # - |
+      #   helm list -n ingress-nginx | grep ingress-nginx || \
+      #   helm install ingress-nginx ingress-nginx/ingress-nginx \
+      #     --namespace ingress-nginx \
+      #     --set controller.publishService.enabled=true
 
   pre_build:
     commands:
