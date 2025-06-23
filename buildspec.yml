@@ -69,12 +69,9 @@ phases:
   build:
     commands:
       - echo Running SonarQube analysis...
-      - mvn clean verify sonar:sonar \
-          -Dsonar.projectKey=Employee \
-          -Dsonar.host.url=http://3.81.33.149 \
-          -Dsonar.login=sqp_a622960eeb6f576452ec2d53092ad2ad13fa2c47
+      - mvn clean verify sonar:sonar -Dsonar.projectKey=Employee -Dsonar.host.url=http://3.81.33.149 -Dsonar.login=sqp_a622960eeb6f576452ec2d53092ad2ad13fa2c47
       - echo Building the backend project...
-      - mvn package -DskipTests
+      - mvn package
       - echo Building Docker image...
       - docker build -t $ECR_REPO:$IMAGE_TAG .
 
